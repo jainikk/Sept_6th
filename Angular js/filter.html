@@ -1,0 +1,50 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js">
+</script>
+</head>
+
+<body ng-app="bindExample">
+<script>
+angular.module('bindExample',[])
+  .controller('ExampleController', ['$scope',function($scope) {
+  
+  $scope.friends=[{name:'John' ,phone:'555-1276' , income:'200'},
+					{name:'Mary' ,phone:'555-4321' ,income:'200'},
+					{name:'Mike' ,phone:'800-1234' ,income:'500'},
+					{name:'Adam' ,phone:'555-1276' ,income:'600'},
+					{name:'Julie' ,phone:'555-8765' ,income:'700' },
+					{name:'Juliete' ,phone:'555-5698' ,income:'800'}];
+  
+  
+  }]);
+  </script>
+  
+  <div ng-controller="ExampleController">
+  <label> Search: <input ng-model="searchText"> </label>
+  <table id="searchTextResults" border="2">
+  <tr> <th>Name </th> <th> Phone </th> <th>income </th> </tr>
+  
+  <tr ng-repeat="friend in friends | filter:searchText | orderBy:'-name'">
+  <td> {{friend.name | uppercase}} </td>
+   <td> {{friend.phone }} </td>
+   <td> {{friend.income | currency}} </td>
+   
+   </tr>
+   </table>
+   <br/>
+   <br/>
+<label> Search by name: <input ng-model="search.name"> </label>
+  <table id="searchTextResults" border="2">
+  <tr> <th>Name </th> <th> Phone </th> <th>income </th> </tr>
+  
+  <tr ng-repeat="friend in friends | filter:search:strict">
+  <td> {{friend.name | uppercase}} </td>
+   <td> {{friend.phone }} </td>
+   <td> {{friend.income | currency}} </td>
+   
+   </tr>
+   </table>   
+   </div>
+   </body>
+   </html>

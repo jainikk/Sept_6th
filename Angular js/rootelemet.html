@@ -1,0 +1,30 @@
+<!DOCTYPE html>      
+<html>      
+<head> 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.1/angular.min.js">
+</script>       
+    <meta charset="utf-8">      
+    <title>AngularJS $rootElement Example</title>      
+  <script>      
+var app = angular.module('iam-root-element', []); 
+    app.controller("ElementNameController", function ($scope,$rootElement) {
+      $scope.ShowRootElement = function()      
+      {      
+        $scope.AppName = $rootElement.attr('ng-app')         
+      }  
+      });
+</script>      
+</head>      
+<body style="background-color:#DDE4E9;">      
+  <fieldset style="background-color:#DDE4E9;">                  
+    <legend>AngulerJS $rootElement Service Example</legend>       
+  <div ng-app="iam-root-element">            
+    <div ng-controller="ElementNameController">       
+      Get ng-app Name:              
+        <input type="string" ng-model="AppName">                    
+        <button ng-click="ShowRootElement()">Display ng-app Name</button> </br>   
+    </div>            
+</div>      
+ </fieldset>       
+</body>      
+</html>

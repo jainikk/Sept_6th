@@ -1,0 +1,56 @@
+<html ng-app="demo">
+    <head>
+        <title>RoutingDemo App</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+       
+    </head>
+    <body ng-app='OnlineShopping' ng-controller="OnlineShopping">
+	<p><a href = "#addProduct">Add Student</a></p>
+         <p><a href = "#viewProduct">View Students</a></p>
+         <div ng-view></div>
+	<script>
+	var app=angular.module("demo",[]);
+app.controller("OnlineShopping", function($scope)
+ { 
+    $scope.items = [
+        {Product:"Moto G2", Desc: "Android Phone", Price: 10999},
+        {Product:"The Monk who sold his ferrari", Desc: "Motivational book", Price: 250},
+        {Product:"Mi Power Bank", Desc: "Power Bank", Price: 999},
+        {Product:"Dell Inspiron 3537", Desc: "Laptop", Price: 45600}
+    ];
+    $scope.editing = false;
+    $scope.addItem = function(item) {
+        $scope.items.push(item);
+        
+    };
+});
+
+
+</script>
+<h2>Search Results</h2>
+        <div style="border: 1px solid blue;">
+        </div>
+        <table border="1" class="mytable" >
+        <tr>
+        <td>Item</td>
+           <td>Description</td>
+           <td>Price</td>
+           
+        </tr>
+        <tr ng-repeat="item in items">
+                  <!-- What should be here -->
+                     <td>{{item.Product}}</td>
+<td>{{item.Desc}}</td>
+<td>{{item.Price}}</td>
+</tr>
+</table>
+
+Enter product name:<input type="text" ng-model="items.Product">
+Enter product description:<input type="text" ng-model="items.Desc">
+Enter product price:<input type="text" ng-model="items.Price">
+<button type="button" ng-click="addItem(items)">Add to cart</button></td>
+        
+       
+	   </body>
+	   </html>
+	   

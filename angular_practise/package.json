@@ -1,0 +1,8 @@
+{ "employee":[{"firstname":"scholar","lastname":"sweta","email":"swetak@cybage.com",
+"dateofjoining":"July 11,2016","extension":"8029","isonbench":"true"},{"firstname":"junglee","lastname":"shibu",
+"email":"shibayanc@cybage.com","dateofjoining":"July 04,2016","extension":"6278","isonbench":"true"},{"firstname":"deep","lastname":"amin",
+"email":"deepa@cybage.com","dateofjoining":"July 11,2016","extension":"1234","isonbench":"false"},{"firstname":"swapnil","lastname":"mehta",
+"email":"swapnilm@cybage.com","dateofjoining":"July 04,2016","extension":"6919","isonbench":"false"},{"firstname":"hakumat","lastname":"rana",
+"email":"hakumatr@cybage.com","dateofjoining":"July 04,2016","extension":"6212","isonbench":"true"},{"firstname":"parth","lastname":"patel",
+"email":"parthp@cybage.com","dateofjoining":"July 11,2016","extension":"1279","isonbench":"false"},{"firstname":"krishna","lastname":"makwana",
+"email":"krishnam@cybage.com","dateofjoining":"July 04,2016","extension":"3456","isonbench":"true"}]}

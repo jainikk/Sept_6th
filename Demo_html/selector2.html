@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script>
+	var inputs = $("#grandpa").children()
+	var a= $("div");
+	var div = a.get(0);
+	var div2=a.get(1);
+	console.log(div2);
+	console.log(div);
+	function hi(){
+	$("#div").on("click",function (){console.log("sfvjhbv");});
+	}
+	function forcetrig(){
+	$("#div").trigger("click");
+	}
+	</script>
+</head>
+<body>
+<div id="div" style="background-color:blue;height:100px;width:100px;" onclick="hi()">
+
+</div>
+<input type="button" value="click me" onclick="forcetrig()">
+	<div id="grandpa" style="border: 3px solid black; width: 700px;">
+		Grandparent
+		<div id="pa" style="border: 2px solid black; width: 400px;">
+			Father
+				<div id="me" style="border: 1px solid black; width: 200px;">
+					Me
+				</div>
+		</div>
+	</div>
+</body>
+</html>

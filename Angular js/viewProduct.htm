@@ -1,0 +1,19 @@
+<h2>	{{message}} </h2>
+										 <div style="border: 1px solid blue;">
+										 </div>
+					<span ng-controller="OS" >					 
+				<table border="1" class="mytable" >
+					<tr>
+					<td>Item</td>
+					   <td>Description</td>
+					   <td>Price</td>
+					   
+					</tr>
+					<tr ng-repeat="item in items">
+							 
+								<td>{{item.Product}}</td>
+								<td>{{item.Desc}}</td>
+								<td>{{item.Price}}</td>
+					</tr>
+				</table>
+				</span>

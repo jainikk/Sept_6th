@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>RoutingDemo App</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
+       
+    </head>
+    <body>
+      <h2>AngularJS Sample Application</h2>
+      <div ng-app = "mainApp"  >
+         <p><a href = "#addProduct">Add Product</a></p>
+         <p><a href = "#viewProduct">View Product</a></p>
+         <div ng-view></div>
+         
+         <link rel="addProduct.htm">
+		 <link rel="viewProduct.htm">
+            
+            
+         
+         
+			  
+</div>
+      
+      <script>
+         var mainApp = angular.module("mainApp", ['ngRoute']);
+         mainApp.config(['$routeProvider', function($routeProvider) {
+            $routeProvider.
+            
+            when('/addProduct', {
+               templateUrl: 'addProduct.htm',
+               controller: 'AddProductController'
+            }).
+            
+            when('/viewProduct', {
+               templateUrl: 'viewProduct.htm',
+               controller: 'ViewProductController'
+            }).
+            
+            otherwise({
+               redirectTo: '/onlineshopping.html'
+            });
+         }]);
+         
+         mainApp.controller('AddProductController', function($scope) {
+            $scope.message = "Add new product";
+         });
+         
+         mainApp.controller('ViewProductController', function($scope) {
+            $scope.message = "View product list";
+         });
+		 
+		 
+mainApp.controller("OS", function($scope)
+ { 
+    $scope.items = [
+        {Product:"Moto G2", Desc: "Android Phone", Price: 10999},
+        {Product:"The Monk who sold his ferrari", Desc: "Motivational book", Price: 250},
+        {Product:"Mi Power Bank", Desc: "Power Bank", Price: 999},
+        {Product:"Dell Inspiron 3537", Desc: "Laptop", Price: 45600}
+    ];
+    
+    $scope.addItem = function(item) {
+        $scope.items.push(item);
+        
+    };
+}); 
+			
+      </script>
+	  
+	  
+      
+   </body>
+	   </html>
+	   

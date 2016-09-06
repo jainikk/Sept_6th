@@ -1,0 +1,25 @@
+<h2>{{message}} </h2> <br/>
+			
+			<span>
+										 </span>
+										 
+		<span ng-controller="OS" >
+			Enter product name:<input type="text" ng-model="items.Product"> <br/><br/>
+			Enter product description:<input type="text" ng-model="items.Desc"> <br/><br/>
+			Enter product price:<input type="text" ng-model="items.Price"> <br/><br/>
+			<button type="button" ng-click="addItem(items)">Add to List</button></td>
+				<table border="1" class="mytable" >
+					<tr>
+					<td>Item</td>
+					   <td>Description</td>
+					   <td>Price</td>
+					   
+					</tr>
+					<tr ng-repeat="item in items">
+							 
+								<td>{{item.Product}}</td>
+								<td>{{item.Desc}}</td>
+								<td>{{item.Price}}</td>
+					</tr>
+				</table>
+		</span>

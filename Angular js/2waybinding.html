@@ -1,0 +1,25 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js">
+</script>
+
+<script src="2waybindscript.js">
+</script>
+
+</head>
+
+<body ng-app="bindExample">
+<!--<script>
+
+angular.module('bindExample',[])
+.controller('ExampleController',['$scope',function($scope) {
+   $scope.name='Iamname';
+   }]);
+   
+   </script>
+   -->
+   <div ng-controller="ExampleController">
+   <label>Enter name: <input type="text" ng-model="name"> </label> <br>
+   hello <span ng-bind="name"></span>
+   </body>
+   </html>

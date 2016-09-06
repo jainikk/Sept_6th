@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.js"></script>
+</head>
+<body ng-app="appName">
+<h2>Creating service to find average number </h2>
+<br/> <br/>
+<div ng-controller="ExampleController">
+
+<input type="number" ng-model="num" >
+<input type="submit" value="next" ng-click="next(num)" name="next">
+<input type="submit" value="submit" ng-click="submit(num)" name="next">
+<br/><br/><br/>
+
+
+Average number From Provider:{{avgbyprovider}} <br/>
+Average number From Service:{{avgbyservice}} <br/>
+Average number From Factory:{{avgbyfactory}}
+</div>
+<script>
+angular.module('appName',[])
+.controller('ExampleController',function($scope,$rootScope,averageservice,averageservicebyservice,averageservicebyfactory){
+  $rootScope.myarray=[];
+  
+  
+  
+  $scope.next=function(num){
+		$rootScope.myarray.push(num);
+		console.log($rootScope.myarray);
+     $scope.num='';
+  }
+  
+  $scope.submit=function(num){
+		$rootScope.myarray.push(num); 
+		console.log($rootScope.myarray);
+     $scope.num='';
+	 $scope.avgbyprovider=averageservice.avg;
+  $scope.avgbyservice=averageservicebyservice.average($rootScope.myarray);
+  averageservicebyfactory.average($rootScope.myarray);
+  $scope.avgbyfactory=averageservicebyfactory.avg;
+  }
+ /* $scope.avgbyprovider=averageservice.avg;
+  $scope.avgbyservice=averageservicebyservice.average($rootScope.myarray);
+  averageservicebyfactory.average($rootScope.myarray);
+  $scope.avgbyfactory=averageservicebyfactory.avg;
+   */
+  }
+)
+
+.provider('averageservice',function(){
+var sum=0,avg=0;
+this.average=function(array){
+console.log(array);
+  for(i=0;i<array.length;i++){
+        sum+=array[i];
+  }
+  console.log(sum);
+  avg=sum/array.length;
+  console.log(avg);}
+  this.$get=function(){
+    return{
+	  avg
+	};
+  }
+
+
+})
+
+.service('averageservicebyservice',function(){
+ this.sum=0;
+ this.avg=0;
+this.average=function(array){
+console.log(array);
+  for(i=0;i<array.length;i++){
+        this.sum+=array[i];
+  }
+  console.log(this.sum);
+  this.avg=this.sum/array.length;
+  console.log(this.avg);
+  return this.avg;
+  }
+  
+
+
+})
+
+.factory('averageservicebyfactory',function(){
+ var calavg={};
+ calavg.sum=0,calavg.avg=0;
+ 
+calavg.average=function(array){
+console.log(array);
+  for(i=0;i<array.length;i++){
+        calavg.sum+=array[i];
+  }
+  console.log(calavg.sum);
+  calavg.avg=calavg.sum/array.length;
+  console.log(calavg.avg);
+ 
+  }
+   return calavg;
+
+
+})
+
+.config(function(averageserviceProvider){
+	
+	averageserviceProvider.average(new Array(10,20,30));
+});
+
+</script>
+</body>
+</html>

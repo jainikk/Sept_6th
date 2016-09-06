@@ -1,0 +1,40 @@
+<html>
+
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+
+<script src="customfilter_roman_number.js"></script>
+</head>
+<body>
+
+      <div ng-app="filters"  ng-controller="demo">
+               <h4 class="text-center">AngularJS Filter - Roman Numbers</h4>
+               <p><strong>Original:</strong></p>
+               <ul>
+                 <li>{{example1}}</li>
+                 <li>{{example2}}</li>
+                 <li>{{example3}}</li>
+                 <li>{{example4}}</li>
+                 <li>{{example5}}</li>
+                 <li>{{example6}}</li>
+                 <li>{{example7}}</li>
+                 <li>{{example8}}</li>
+               </ul>
+               <p><strong>Roman Filter:</strong></p>
+               <ul>
+                 <li>{{example1 | roman}}</li>
+                 <li>{{example2 | roman}}</li>
+                 <li>{{example3 | roman}}</li>
+                 <li>{{example4 | roman}}</li>
+                 <li>{{example5 | roman}}</li>
+                 <li>{{example6 | roman}}</li>
+                 <li>{{example7 | roman}}</li>
+                 <li>{{example8 | roman}}</li>
+               </ul>
+        
+  
+
+</div>
+
+</body>
+</html>

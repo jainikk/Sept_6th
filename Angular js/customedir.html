@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>RoutingDemo App</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+      
+    </head>
+    <body>
+	<div ng-app="mainApp" ng-controller="StudentController">
+	    <student name="Student1"> </student> <br/>
+		<student name="Student2"> </student> <br/>
+	</div>
+	<script>
+	var mainApp=angular.module("mainApp",[]);
+	
+	mainApp.controller('StudentController', ['$scope', function($scope) {
+  $scope.Student1 = { name: 'Naomi' };
+  $scope.Student2 = { name: 'Igor' };
+}]);
+
+	mainApp.directive('student',function(){
+	return {
+    restrict: 'E',
+    scope: {
+      studentInfo: '=name'
+    },
+    templateUrl: 'my-student-iso.html'
+  };
+});
+
+</script>
+</body>
+</html>

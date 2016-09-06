@@ -1,0 +1,66 @@
+<html lang="en" >
+<html>
+	<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	
+	</head>
+	
+	<body ng-app="myApp">
+		<div ng-controller="Ctr">
+			<input type="number" ng-model="number">
+			<input type="submit" ng-click="square()">
+			{{result}}
+			{{abc}}
+			
+		</div>
+		
+		<div ng-controller="Ctr1">
+			
+			{{abc}}
+			
+		</div>
+		
+		
+		<script>
+			var app = angular.module('myApp',[]);
+		/*	app.factory('myfact',function(){
+				var a = {};
+				a.abc = 0;
+				a.multiply = function(num) {
+					return num * num;
+				}
+				return a;
+			});
+*/			
+			app.service('Calc',function(){
+				var a = {};
+				a.abc = 0;
+				a.multiply = function(num) {
+					return num * num;
+				}
+				return a;
+			});
+			
+			app.controller('Ctr',function($scope,Calc){
+				Calc.abc = 10;
+				//myfact.abc = 10;
+				$scope.abc = Calc.abc;
+				$scope.square = function(){
+					$scope.result = Calc.multiply($scope.number);
+				}
+			});
+			
+			app.controller('Ctr1',function($scope,Calc){
+				Calc.abc = 10;
+				//myfact.abc = 12;
+				$scope.abc = Calc.abc;
+				//$scope.square = function(){
+					//$scope.result = Calc.square($scope.number);
+				//}
+			});
+		
+		
+			
+		</script>
+	</body>
+</html>

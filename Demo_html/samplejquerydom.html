@@ -1,0 +1,87 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>Validate Inputs</title>
+	<style>
+		body {
+			font-family: Calibri;
+		}
+		.content {
+			text-align: center;
+		}
+		.content table {
+			margin: 0px auto;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script>
+	// Validate the inputs on this page.
+	function ValidateForm() {
+	var regex=/\b[a-zA-Z]+\b/;
+	var regex2=/\b[0-9]+\b/;
+	var x=$("#name").val();
+	var y=$("#age").val();
+	
+	if(regex.test(x)){
+		$("#namemessage").html("Valid");
+		}
+	else{
+		$("#namemessage").html("Not Valid");
+		$("#namemessage").css("color","red");
+	}	
+	
+	if(regex2.test(y)){
+		$("#agemessage").html("Valid");
+		}
+	else{
+		$("#agemessage").html("Not Valid");
+		$("#agemessage").css("color","red");
+	}	
+	
+
+	}
+
+	// Reset any messages that were displayed.
+	function ResetMessage() {
+		var x=$("#name").val("");
+		var y=$("#age").val("");
+
+	}
+	
+	function load(){
+		$("#name").on("click",function(){
+		console.log('Click triggered on');
+	});}
+	
+	function abc(){
+		$("#name").trigger('click');
+	}
+	</script>
+</head>
+<body onload="load();">
+	
+	<div class="content">
+		<h1>Validate Inputs</h1>
+		<form>
+			
+				<span>Name:</span>
+				<input id="name" type="text" />
+				<span id="namemessage"></span>
+			</div>
+			<br / >
+			<div>
+				<span>Age:</span>
+				<input id="age" type="text" />
+				<span id="agemessage"></span>
+			</div>
+			<br / >
+			<div>
+				<input type="button" value="Validate Inputs" onclick="ValidateForm();">
+				<input type="button" value="Reset Messages" onclick="ResetMessage();">
+			</div>
+		</form>
+	</div>
+	<div id="name">click me </div>
+			<input type="button" onclick="abc()" value="browse"></input>
+</body>
+</html>
