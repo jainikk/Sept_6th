@@ -1,0 +1,143 @@
+<br/> <br/>
+<h2>Add New Author Details </h2>
+<br/> <br/>
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Employee ID :</label>
+    <div class="col-sm-7">
+      <input type="text" ng-model="author.empid" class="form-control" id="isbn" placeholder="Employee ID">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Name :</label>
+    <div class="col-sm-7">
+      <input type="text" ng-model="author.name" class="form-control" id="title" placeholder="Your Name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Email :</label>
+    <div class="col-sm-7">
+      <input type="text" ng-model="author.email" class="form-control" id="author" placeholder="Email ID">
+    </div>
+  </div>
+   <div class="form-group">
+  <label for="inputPassword3" class="col-sm-2 control-label">Skills :</label>
+    <div class="checkbox-inline">
+		<label class="col-sm-2">
+		<input type="checkbox" ng-model="author.skills" value="Amazon">
+		Node.js
+		</label>
+	</div>
+	<div class="checkbox-inline">
+		<label class="col-sm-2">
+		<input type="checkbox" ng-model="author.skills" value="eBay">
+		Javascript
+		</label>
+	</div>
+	<div class="checkbox-inline">
+		<label class="col-sm-2">
+		<input type="checkbox" ng-model="author.skills" value="Flipkart">
+		Go
+		</label>
+	</div>
+	<div class="checkbox-inline">
+		<label class="col-sm-2">
+		<input type="checkbox" value="Flipkart">
+		Python
+		</label>
+	</div>
+	<div class="checkbox-inline">
+		<label class="col-sm-2">
+		<input type="checkbox" value="Flipkart">
+		PHP
+		</label>
+	</div>
+	<div class="checkbox-inline">
+		<label class="col-sm-2">
+		<input type="checkbox" value="Flipkart">
+		Backbone
+		</label>
+	</div>
+	<br/>
+		<div class="checkbox-inline col-md-offset-2">
+		<label class="col-sm-2">
+		<input type="checkbox" value="Flipkart">
+		React
+		</label>
+	</div>
+		<div class="checkbox-inline">
+		<label class="col-sm-2">
+		<input type="checkbox" value="Flipkart">
+		Knockout
+		</label>
+	</div>
+		<div class="checkbox-inline">
+		<label class="col-sm-2">
+		<input type="checkbox" value="Flipkart">
+		Java
+		</label>
+	</div>
+		<div class="checkbox-inline">
+		<label class="col-sm-2">
+		<input type="checkbox" value="Flipkart">
+		HTML
+		</label>
+	</div>
+		<div class="checkbox-inline">
+		<label class="col-sm-2">
+		<input type="checkbox" value="Flipkart">
+		CSS
+		</label>
+	</div>
+		<div class="checkbox-inline">
+		<label class="col-sm-2">
+		<input type="checkbox" value="Flipkart">
+		Angular
+		</label>
+	</div><br/>
+	<div class="checkbox-inline col-md-offset-2">
+		<label class="col-sm-12">
+		<input type="checkbox" value="Flipkart">
+		Project Management
+		</label>
+	</div>
+	<div class="checkbox-inline">
+		<label class="col-sm-2">
+		<input type="checkbox" value="Flipkart">
+		Communication
+		</label>
+	</div>
+	<div class="checkbox-inline">
+		<label class="col-sm-12">
+		<input type="checkbox" value="Flipkart">
+		Delivery Management
+		</label>
+	</div>
+	<div class="checkbox-inline">
+		<label class="col-sm-12">
+		<input type="checkbox" value="Flipkart">
+		Team Management
+		</label>
+	</div>
+	
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Department :</label>
+    <div class="col-sm-7">
+      <input type="text" ng-model="author.department" class="form-control" id="price" placeholder="Department name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Website :</label>
+    <div class="col-sm-7">
+      <input type="text" ng-model="author.website" class="form-control" id="availableOn" placeholder="Website URL">
+    </div>
+  </div>
+  
+ 
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" ng-click="addAuthor(author)" class="btn btn-default">Save</button>
+    </div>
+  </div>
+</form>

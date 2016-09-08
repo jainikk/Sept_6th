@@ -1,0 +1,1 @@
+sass --watch --sourcemap sass/styles.scss:styles.css

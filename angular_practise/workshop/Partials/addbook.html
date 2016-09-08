@@ -1,0 +1,83 @@
+<br/> <br/>
+<h2>Add New Book Details </h2>
+<br/> <br/>
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">ISBN :</label>
+    <div class="col-sm-6">
+      <input type="text" ng-model="book.isbn" class="form-control" id="isbn" placeholder="Book ISBN no">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Title :</label>
+    <div class="col-sm-6">
+      <input type="text" ng-model="book.title" class="form-control" id="title" placeholder="Book Title">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Author :</label>
+    <div class="col-sm-6">
+      <input type="text" ng-model="book.author" class="form-control" id="author" placeholder="Book Author">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Price :</label>
+    <div class="col-sm-6">
+      <input type="text" ng-model="book.price" class="form-control" id="price" placeholder="Book Price">
+    </div>
+  </div>
+  <div class="form-group">
+  <label for="inputPassword3" class="col-sm-2 control-label">Available On :</label>
+    <div class="checkbox-inline">
+		<label class="col-sm-2">
+		<input type="checkbox" value="Amazon" ng-model="book.available">
+		Amazon
+		</label>
+	</div>
+	<div class="checkbox-inline">
+		<label class="col-sm-2">
+		<input type="checkbox" value="eBay" ng-model="book.available">
+		eBay
+		</label>
+	</div>
+	<div class="checkbox-inline">
+		<label class="col-sm-2">
+		<input type="checkbox" value="Flipkart" ng-model="book.available">
+		Flipkart
+		</label>
+	</div>
+	
+  </div>
+  
+ 
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" ng-click="add(book)" class="btn btn-default">Save</button>
+    </div>
+  </div>
+</form>
+
+<div class="table_info table-responsive" >
+			<table class="table table-hover table-bordered">
+			<tr>
+				<th>ISBN </th>
+				<th>Title </th>
+				<th>Author</th>
+				<th>Price</th>
+				<th>Available On</th>
+			</tr>
+			
+			<tr ng-repeat="employee in myData" ng-click="showbookpage(employee)">
+								 
+										<td><a href="#/bookdetails">{{employee.isbn}}</a></td>
+										<td><a href="#/bookdetails">{{employee.title}}</a></td>
+										<td><a href="#/authordetails">{{employee.author}}</a></td>
+										<td><a href="#/bookdetails">{{employee.price}}</a></td>
+										<td><a href="#/bookdetails">{{employee.availableOn}}</a></td>
+									
+								
+			</tr>
+			
+			</table>
+	
+	</div>
