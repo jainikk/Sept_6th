@@ -22,10 +22,10 @@
 	.addauthor{
 		margin:0.5em;
 	}
-	#table_details,#bookeditingform{
+	#table_details,#bookeditingform,#authorform{
 	 display:none;
 	}
-	#bookdetails{
+	#bookdetails,#authordetails{
 	margin-left:15%;
 	}
 	</style>
@@ -54,12 +54,17 @@
   </div><!-- /.container-fluid -->
 
    <script>
-   
+  
    
 	
-    function showform(){
+    function showbookform(){
         $("#bookeditingform").show();
 		$("#bookdetails").hide();
+    };
+	
+	function showauthorform(){
+        $("#authorform").show();
+		$("#authordetails").hide();
     };
 	
         angular.module('bookDemoApp',['ngRoute'])
@@ -112,33 +117,43 @@
                 }
             }
 		
-		
+		 $scope.availableOn=['amazon','eBay','Flipkart'];
+		 $scope.selectedavailableOn=[];
 		/*	$scope.showbookpage=function(employee){
 					console.log("book details");
 					$scope.book_details=employee;
 					console.log("book details");
 				}; */
+				$scope.chkSelected = function(cb){
+				
+					$scope.selectedavailableOn.push(cb);
+					console.log($scope.selectedavailableOn);
+				}
 				
 		$scope.add=function(book){
 					$scope.book=book;
 					console.log("add data");
 					//$scope.myData.push(book);
+					console.log($scope.book);
+					$scope.book.availableOn=$scope.selectedavailableOn;
 					var data= $.param({
 							isbn: $scope.book.isbn,
 							title: $scope.book.title,
 							author:$scope.book.author,
-							price:$scope.book.price
+							price:$scope.book.price,
+							availableOn:$scope.book.availableOn
 							});
+							console.log(data);
 												
 							$http.post('http://172.27.12.104:3000/book/new',data,config)
 					   .then(
 								   function(response){
 									 // success callback
-									 console.log('success');
+									 alert('book added');
 								   }, 
 								   function(response){
 									 // failure callback
-									 console.log('failed');
+									 alert('book is not added');
 								   }
 							);
 					};
@@ -161,11 +176,11 @@
 					   .then(
 								   function(response){
 									 // success callback
-									 console.log('success');
+									alert('author saved');
 								   }, 
 								   function(response){
 									 // failure callback
-									 console.log('failed');
+									 alert('failed to save author');
 								   }
 							);
 					};
@@ -195,27 +210,71 @@
 					};
 					
 					$scope.deleteBook=function(book){
-					$rootScope.book=book;
-					console.log($scope.book);
-					//$scope.myData.push(book);
-					var data= $.param({
-							isbn: $scope.book.isbn,
-							title: $scope.book.title,
-							author:$scope.book.author,
-							price:$scope.book.price
-							});
+					var isbn=book.isbn;
+					console.log(isbn);
+					 var isbn1={"isbn":isbn};
+					console.log(isbn1);
+					
 												
-							$http.delete('http://172.27.12.104:3000/book/remove',data,config)
+						/*	$http.delete('http://172.27.12.104:3000/book/remove',$.param(isbn1),config)
 					   .then(
 								   function(response){
 									 // success callback
-									 console.log('success');
+									 alert('book deleted');
 								   }, 
 								   function(response){
 									 // failure callback
-									 console.log('failed');
+									 alert('book deletion failed');
 								   }
-							);
+							);*/
+							
+					$http({  
+											url:"http://172.27.12.104:3000/book/remove",  
+											method:'DELETE',  
+											data: $.param(isbn1),
+												headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+										 }).success(function (response) {  
+											$scope.value = response; 
+											  alert($scope.value);
+										 })  
+										   .error(function (error) {  
+											  alert(error);  
+										   });
+
+					};
+					
+					$scope.deleteAuthor=function(author){
+					var empid=author.empid;
+					console.log(empid);
+					 var empid1={"empid":empid};
+					console.log(empid1);
+					
+												
+						/*	$http.delete('http://172.27.12.104:3000/book/remove',$.param(isbn1),config)
+					   .then(
+								   function(response){
+									 // success callback
+									 alert('book deleted');
+								   }, 
+								   function(response){
+									 // failure callback
+									 alert('book deletion failed');
+								   }
+							);*/
+							
+					$http({  
+											url:"http://172.27.12.104:3000/author/remove",  
+											method:'DELETE',  
+											data: $.param(empid1),
+												headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+										 }).success(function (response) {  
+											$scope.value = response; 
+											  alert($scope.value);
+										 })  
+										   .error(function (error) {  
+											  alert(error);  
+										   });
+
 					};
 					
 					$scope.editBook=function(book){
@@ -233,11 +292,11 @@
 					   .then(
 								   function(response){
 									 // success callback
-									 console.log('success');
+									alert('book updated');
 								   }, 
 								   function(response){
 									 // failure callback
-									 console.log('failed');
+									 console.log('book failed to update');
 								   }
 							);
 					};
@@ -259,19 +318,21 @@
 					   .then(
 								   function(response){
 									 // success callback
-									 console.log('success');
+									 alert('author updated');
 								   }, 
 								   function(response){
 									 // failure callback
-									 console.log('failed');
+									 alert('update failed');
 								   }
 							);
 					};
 					
 					$scope.searchByAuthor=function(book){
-					console.log($rootScope.myAuthor);
+					console.log(book);
+					//console.log($rootScope.myAuthor);
 					for(var c in $rootScope.myAuthor){
 					   console.log($rootScope.myAuthor[c].name);
+					   console.log(book.author);
 						if(book.author===$rootScope.myAuthor[c].name){
 						console.log($rootScope.myAuthor[c]);
 						$rootScope.searchauthor=$rootScope.myAuthor[c];
@@ -280,7 +341,7 @@
 					console.log($rootScope.searchauthor);
 					//$scope.myData.push(book);
 					var data= $.param({
-							empid: $rootScope.searchauthor.empid,
+							empid: $scope.searchauthor.empid,
 							name: $rootScope.searchauthor.name,
 							email:$rootScope.searchauthor.email,
 							skills:$rootScope.searchauthor.skills,

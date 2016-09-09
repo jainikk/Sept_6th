@@ -29,23 +29,23 @@
   <div class="form-group">
   <label for="inputPassword3" class="col-sm-2 control-label">Available On :</label>
     <div class="checkbox-inline">
-		<label class="col-sm-2">
-		<input type="checkbox" value="Amazon" ng-model="book.available">
-		Amazon
+		<label ng-repeat="cb in availableOn" class="col-sm-6">
+		<input type="checkbox" ng-click="chkSelected(cb)" value="" ng-checked="">
+		{{cb}} 
 		</label>
 	</div>
-	<div class="checkbox-inline">
+	<!--<div class="checkbox-inline">
 		<label class="col-sm-2">
-		<input type="checkbox" value="eBay" ng-model="book.available">
+		<input type="checkbox" value="eBay" ng-checked="book.eBay">
 		eBay
 		</label>
 	</div>
 	<div class="checkbox-inline">
 		<label class="col-sm-2">
-		<input type="checkbox" value="Flipkart" ng-model="book.available">
+		<input type="checkbox" value="Flipkart" ng-checked="book.Flipkart">
 		Flipkart
 		</label>
-	</div>
+	</div> -->
 	
   </div>
   

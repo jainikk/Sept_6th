@@ -1,0 +1,206 @@
+.controller("bookctrl", function($scope, $http,$rootScope) {
+				$http.get("http://172.27.12.104:3000/book/list").then(function(response) {
+				$scope.myData = response.data;
+				console.log($scope.myData);
+				});
+				
+				$http.get("http://172.27.12.104:3000/author/list").then(function(response) {
+				$rootScope.myAuthor = response.data;
+				console.log($scope.myAuthor);
+				});
+				
+		var config = {
+                headers : {
+                    'content-type': 'application/x-www-form-urlencoded'
+                }
+            }
+		
+		
+		/*	$scope.showbookpage=function(employee){
+					console.log("book details");
+					$scope.book_details=employee;
+					console.log("book details");
+				}; */
+				
+		$scope.add=function(book){
+					$scope.book=book;
+					console.log("add data");
+					//$scope.myData.push(book);
+					var data= $.param({
+							isbn: $scope.book.isbn,
+							title: $scope.book.title,
+							author:$scope.book.author,
+							price:$scope.book.price
+							});
+												
+							$http.post('http://172.27.12.104:3000/book/new',data,config)
+					   .then(
+								   function(response){
+									 // success callback
+									 console.log('success');
+								   }, 
+								   function(response){
+									 // failure callback
+									 console.log('failed');
+								   }
+							);
+					};
+
+				$scope.addAuthor=function(author){
+					$scope.author=author;
+					console.log("add data");
+					console.log($scope.author);
+					//$scope.myData.push(book);
+					var data= $.param({
+							empid: $scope.author.empid,
+							name: $scope.author.name,
+							email:$scope.author.email,
+							skills:$scope.author.skills,
+							department:$scope.author.department,
+							website:$scope.author.website
+							});
+												
+							$http.post('http://172.27.12.104:3000/author/new',data,config)
+					   .then(
+								   function(response){
+									 // success callback
+									 console.log('success');
+								   }, 
+								   function(response){
+									 // failure callback
+									 console.log('failed');
+								   }
+							);
+					};
+					
+					$scope.searchByISBN=function(book){
+					$rootScope.book=book;
+					console.log($scope.book);
+					//$scope.myData.push(book);
+					var data= $.param({
+							isbn: $scope.book.isbn,
+							title: $scope.book.title,
+							author:$scope.book.author,
+							price:$scope.book.price
+							});
+												
+							$http.post('http://172.27.12.104:3000/book/byisbn',data,config)
+					   .then(
+								   function(response){
+									 // success callback
+									 console.log('success');
+								   }, 
+								   function(response){
+									 // failure callback
+									 console.log('failed');
+								   }
+							);
+					};
+					
+					$scope.deleteBook=function(book){
+					$rootScope.isbn=book.isbn;
+					
+					console.log($scope.isbn);
+					//$scope.myData.push(book);
+					var data= $.param({
+							isbn: $scope.isbn
+							
+							});
+												
+							$http.delete('http://172.27.12.104:3000/book/remove',data)
+					   .then(
+								   function(response){
+									 // success callback
+									 console.log('success');
+								   }, 
+								   function(response){
+									 // failure callback
+									 console.log('failed');
+								   }
+							);
+					};
+					
+					$scope.editBook=function(book){
+					$rootScope.book=book;
+					console.log($rootScope.book);
+					//$scope.myData.push(book);
+					var data1= $.param({
+							isbn: $rootScope.book.isbn,
+							title: $rootScope.book.title,
+							author:$rootScope.book.author,
+							price:$rootScope.book.price
+							});
+												
+							$http.put('http://172.27.12.104:3000/book/update',data1,config)
+					   .then(
+								   function(response){
+									 // success callback
+									 console.log('success');
+								   }, 
+								   function(response){
+									 // failure callback
+									 console.log('failed');
+								   }
+							);
+					};
+					
+					$scope.editAuthor=function(searchauthor){
+					$rootScope.author=searchauthor;
+					console.log($rootScope.author);
+					//$scope.myData.push(book);
+					var data1= $.param({
+							empid: $scope.author.empid,
+							name: $scope.author.name,
+							email:$scope.author.email,
+							skills:$scope.author.skills,
+							department:$scope.author.department,
+							website:$scope.author.website
+							});
+												
+							$http.put('http://172.27.12.104:3000/author/update',data1,config)
+					   .then(
+								   function(response){
+									 // success callback
+									 console.log('success');
+								   }, 
+								   function(response){
+									 // failure callback
+									 console.log('failed');
+								   }
+							);
+					};
+					
+					$scope.searchByAuthor=function(book){
+					console.log($rootScope.myAuthor);
+					for(var c in $rootScope.myAuthor){
+					   console.log($rootScope.myAuthor[c].name);
+						if(book.author===$rootScope.myAuthor[c].name){
+						console.log($rootScope.myAuthor[c]);
+						$rootScope.searchauthor=$rootScope.myAuthor[c];
+						}
+					}
+					console.log($rootScope.searchauthor);
+					//$scope.myData.push(book);
+					var data= $.param({
+							empid: $rootScope.searchauthor.empid,
+							name: $rootScope.searchauthor.name,
+							email:$rootScope.searchauthor.email,
+							skills:$rootScope.searchauthor.skills,
+							department:$rootScope.searchauthor.department,
+							website:$rootScope.searchauthor.website
+							});
+												
+							$http.post('http://172.27.12.104:3000/author/byname',data,config)
+					   .then(
+								   function(response){
+									 // success callback
+									 console.log('success');
+								   }, 
+								   function(response){
+									 // failure callback
+									 console.log('failed');
+								   }
+							);
+					};
+
+});
