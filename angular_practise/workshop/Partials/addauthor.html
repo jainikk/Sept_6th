@@ -23,103 +23,12 @@
    <div class="form-group">
   <label for="inputPassword3" class="col-sm-2 control-label">Skills :</label>
     <div class="checkbox-inline">
-		<label class="col-sm-2">
-		<input type="checkbox" ng-model="author.skills" value="Amazon">
-		Node.js
+		<label ng-repeat="skill in skills" class="col-sm-6">
+	<!--	 <input type="checkbox" name="type" value="Flipkart" /> -->
+		<input type="checkbox" ng-click="skillsselected(skill)" value="" ng-checked="">
+		{{skill}} 
 		</label>
 	</div>
-	<div class="checkbox-inline">
-		<label class="col-sm-2">
-		<input type="checkbox" ng-model="author.skills" value="eBay">
-		Javascript
-		</label>
-	</div>
-	<div class="checkbox-inline">
-		<label class="col-sm-2">
-		<input type="checkbox" ng-model="author.skills" value="Flipkart">
-		Go
-		</label>
-	</div>
-	<div class="checkbox-inline">
-		<label class="col-sm-2">
-		<input type="checkbox" value="Flipkart">
-		Python
-		</label>
-	</div>
-	<div class="checkbox-inline">
-		<label class="col-sm-2">
-		<input type="checkbox" value="Flipkart">
-		PHP
-		</label>
-	</div>
-	<div class="checkbox-inline">
-		<label class="col-sm-2">
-		<input type="checkbox" value="Flipkart">
-		Backbone
-		</label>
-	</div>
-	<br/>
-		<div class="checkbox-inline col-md-offset-2">
-		<label class="col-sm-2">
-		<input type="checkbox" value="Flipkart">
-		React
-		</label>
-	</div>
-		<div class="checkbox-inline">
-		<label class="col-sm-2">
-		<input type="checkbox" value="Flipkart">
-		Knockout
-		</label>
-	</div>
-		<div class="checkbox-inline">
-		<label class="col-sm-2">
-		<input type="checkbox" value="Flipkart">
-		Java
-		</label>
-	</div>
-		<div class="checkbox-inline">
-		<label class="col-sm-2">
-		<input type="checkbox" value="Flipkart">
-		HTML
-		</label>
-	</div>
-		<div class="checkbox-inline">
-		<label class="col-sm-2">
-		<input type="checkbox" value="Flipkart">
-		CSS
-		</label>
-	</div>
-		<div class="checkbox-inline">
-		<label class="col-sm-2">
-		<input type="checkbox" value="Flipkart">
-		Angular
-		</label>
-	</div><br/>
-	<div class="checkbox-inline col-md-offset-2">
-		<label class="col-sm-12">
-		<input type="checkbox" value="Flipkart">
-		Project Management
-		</label>
-	</div>
-	<div class="checkbox-inline">
-		<label class="col-sm-2">
-		<input type="checkbox" value="Flipkart">
-		Communication
-		</label>
-	</div>
-	<div class="checkbox-inline">
-		<label class="col-sm-12">
-		<input type="checkbox" value="Flipkart">
-		Delivery Management
-		</label>
-	</div>
-	<div class="checkbox-inline">
-		<label class="col-sm-12">
-		<input type="checkbox" value="Flipkart">
-		Team Management
-		</label>
-	</div>
-	
   </div>
   <div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label">Department :</label>

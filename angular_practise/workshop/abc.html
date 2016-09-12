@@ -9,8 +9,9 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script> 
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
 	<style>
 	td a,td a:hover{
 	text-decoration:none;
@@ -67,7 +68,7 @@
 		$("#authordetails").hide();
     };
 	
-        angular.module('bookDemoApp',['ngRoute'])
+        angular.module('bookDemoApp',['ngRoute','ngResource'])
             .config(['$routeProvider', function($routeProvider){
                 $routeProvider
         .when("/",{
@@ -92,15 +93,16 @@
 			   });
 		}])
 
-		.controller("londonCtrl",function($scope){
+		.controller("londonCtrl",function($scope,$location){
 		$scope.msg="I love london" ; 
+		
 		})
 
 		.controller("parisCtrl",function($scope){
 		$scope.msg="I love paris" ; 
 		})
 		
-		.controller("bookctrl", function($scope, $http,$rootScope) {
+		.controller("bookctrl", function($scope, $http,$rootScope,$location) {
 				$http.get("http://172.27.12.104:3000/book/list").then(function(response) {
 				$scope.myData = response.data;
 				console.log($scope.myData);
@@ -118,24 +120,25 @@
             }
 		
 		 $scope.availableOn=['amazon','eBay','Flipkart'];
-		 $scope.selectedavailableOn=[];
-		/*	$scope.showbookpage=function(employee){
-					console.log("book details");
-					$scope.book_details=employee;
-					console.log("book details");
-				}; */
+	//	 $scope.selectedavailableOn=[];
+		var temp1='';
 				$scope.chkSelected = function(cb){
 				
+				 temp1+=cb+',';
+				 console.log(temp1);
+				/*
 					$scope.selectedavailableOn.push(cb);
-					console.log($scope.selectedavailableOn);
+					console.log($scope.selectedavailableOn);*/
 				}
 				
 		$scope.add=function(book){
+					temp1 = temp1.replace(/,\s*$/, "");
 					$scope.book=book;
 					console.log("add data");
 					//$scope.myData.push(book);
 					console.log($scope.book);
-					$scope.book.availableOn=$scope.selectedavailableOn;
+				//	console.log($scope.selectedavailableOn);
+					$scope.book.availableOn=temp1;
 					var data= $.param({
 							isbn: $scope.book.isbn,
 							title: $scope.book.title,
@@ -143,6 +146,7 @@
 							price:$scope.book.price,
 							availableOn:$scope.book.availableOn
 							});
+							console.log($scope.book);
 							console.log(data);
 												
 							$http.post('http://172.27.12.104:3000/book/new',data,config)
@@ -150,6 +154,7 @@
 								   function(response){
 									 // success callback
 									 alert('book added');
+									   
 								   }, 
 								   function(response){
 									 // failure callback
@@ -157,13 +162,50 @@
 								   }
 							);
 					};
-
+			
+			
+			 $scope.skills=["Node.js", "JavaScript", "Go", "Python", "PHP", "Backbone", "React","Team Management", "Communication"];
+	//	 $scope.selectedSkills=[];
+		   
+		   var temp='';
+		 $scope.skillsselected = function(skill){
+				 temp+=skill+',';
+				 console.log(temp);
+					
+				
+				}
+				
+				
+				
+			/*	
+				
+				//for checked box
+        
+            $("input:checkbox[name=type]:checked").each(function(){
+               // avab.push($(this).val());
+                
+               avab += ''+$(this).val() +',';
+                
+            });
+          
+      emp3['skills']=avab;
+         console.log(emp3);*/
+				
+					
+		 
+		 
 				$scope.addAuthor=function(author){
+				temp = temp.replace(/,\s*$/, "");
+			//	$scope.selectedSkills.push(temp);
+				console.log(temp);
+			//	console.log($scope.selectedSkills);
 					$scope.author=author;
 					console.log("add data");
 					console.log($scope.author);
+					$scope.author.skills=temp;
+					console.log($scope.author.skills);
 					//$scope.myData.push(book);
-					var data= $.param({
+					var data2= $.param({
 							empid: $scope.author.empid,
 							name: $scope.author.name,
 							email:$scope.author.email,
@@ -171,23 +213,29 @@
 							department:$scope.author.department,
 							website:$scope.author.website
 							});
-												
-							$http.post('http://172.27.12.104:3000/author/new',data,config)
-					   .then(
-								   function(response){
-									 // success callback
-									alert('author saved');
-								   }, 
-								   function(response){
-									 // failure callback
-									 alert('failed to save author');
-								   }
-							);
+									console.log(data2);
+							$http({  
+											url:"http://172.27.12.104:3000/author/new",  
+											method:'POST',  
+											data:data2,
+												headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+										 }).success(function (response) {  
+											$scope.value = response; 
+											  alert($scope.value);
+										 })  
+										   .error(function (error) {  
+											  alert(error);  
+										   });
 					};
 					
 					$scope.searchByISBN=function(book){
 					$rootScope.book=book;
 					console.log($scope.book);
+					$location.path('#/bookdetails?isbn='+$scope.book.isbn);
+					var name=$location.search(); 
+					console.log("name="+name);
+					var name1 = $.param(name);
+					console.log("name1="+name1);
 					//$scope.myData.push(book);
 					var data= $.param({
 							isbn: $scope.book.isbn,
@@ -196,11 +244,16 @@
 							price:$scope.book.price
 							});
 												
-							$http.post('http://172.27.12.104:3000/book/byisbn',data,config)
+							$http.post('http://172.27.12.104:3000/book/byisbn',name1,config)
 					   .then(
 								   function(response){
 									 // success callback
 									 console.log('success');
+									 //$location.path('#/bookdetails?isbn='+$scope.book.isbn);
+									
+									//console.log("name"+name);
+									console.log(response);
+									 
 								   }, 
 								   function(response){
 									 // failure callback
@@ -278,9 +331,11 @@
 					};
 					
 					$scope.editBook=function(book){
+					temp = temp.replace(/,\s*$/, "");
 					$rootScope.book=book;
 					console.log($rootScope.book);
 					//$scope.myData.push(book);
+					$scope.book.availableOn=temp1;
 					var data1= $.param({
 							isbn: $rootScope.book.isbn,
 							title: $rootScope.book.title,
@@ -328,6 +383,7 @@
 					};
 					
 					$scope.searchByAuthor=function(book){
+					
 					console.log(book);
 					//console.log($rootScope.myAuthor);
 					for(var c in $rootScope.myAuthor){
@@ -340,6 +396,13 @@
 					}
 					console.log($rootScope.searchauthor);
 					//$scope.myData.push(book);
+					$location.path('#/authordetails?name='+$rootScope.searchauthor.name);
+					
+					var name=$location.search(); 
+					console.log("name="+name);
+					var name1 = $.param(name);
+					console.log("name1="+name1);
+					
 					var data= $.param({
 							empid: $scope.searchauthor.empid,
 							name: $rootScope.searchauthor.name,
@@ -349,7 +412,7 @@
 							website:$rootScope.searchauthor.website
 							});
 												
-							$http.post('http://172.27.12.104:3000/author/byname',data,config)
+							$http.post('http://172.27.12.104:3000/author/byname',name1,config)
 					   .then(
 								   function(response){
 									 // success callback
