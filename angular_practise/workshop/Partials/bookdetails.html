@@ -43,7 +43,7 @@
    
     <div class="checkbox-inline">
 		<label ng-repeat="cb in availableOn" class="col-sm-6">
-		<input type="checkbox" ng-click="chkSelected(cb)" value="" ng-checked="">
+		<input type="checkbox"  ng-model="book.availableOn" ng-checked="true" ng-click="chkSelected(cb)" value="" ng-checked="">
 		{{cb}} 
 		</label>
 	</div>
