@@ -9,9 +9,9 @@
 			
 			<tr ng-repeat="book in myData" >
 								 
-										<td ng-click="searchByISBN(book)"><a ng-href="#/bookdetails?{{book.isbn}}">{{book.isbn}}</a></td>
-										<td><a href="#/bookdetails">{{book.title}}</a></td>
-										<td ng-click="searchByAuthor(book)"><a ng-href="#/authordetails?{{book.author}}">{{book.author}}</a></td>
+										<td><a ng-href="#/bookdetails?{{book.isbn}}">{{book.isbn}}</a></td>
+										<td><a>{{book.title}}</a></td>
+										<td><a ng-href="#/authordetails?{{book.author}}">{{book.author}}</a></td>
 										
 									
 								
