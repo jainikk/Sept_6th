@@ -15,10 +15,18 @@
   <script src="controllers/main.js"></script>
   <script src="controllers/addBook-controller.js"></script>
   <script src="controllers/addAuthor-controller.js"></script>
-  <script src="controllers/searchBy-controller.js"></script>
   <script src="controllers/edit_delete-author-controller.js"></script>
   <script src="controllers/edit_delete-book-controller.js"></script>
 	<style>
+	.header1{
+	 background-color:black;
+	 width:100%;
+	
+	}
+	.heading{
+	 color:white;
+	 
+	}
 	td a,td a:hover{
 	text-decoration:none;
 	color:inherit;
@@ -38,10 +46,14 @@
 	</style>
 	
   </head>
-  <body ng-app="bookDemoApp" ng-controller="searchBy">
+  <body ng-app="bookDemoApp">
+ 
   
   <div class="container-fluid" ng-controller='bookctrl'>
-    
+   <header class="header1 col-sm-8">
+  <h1 class="heading col-sm-offset-4">Online Book Store</h1>
+ </header>
+    <br/> <br/> <br/> <br/>
 		<nav class="navbar navbar-default">
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

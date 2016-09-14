@@ -26,8 +26,8 @@
     <div class="checkbox-inline">
 		<label ng-repeat="skill in skills" class="col-sm-6">
 	<!--	 <input type="checkbox" name="type" value="Flipkart" /> -->
-		<input type="checkbox" ng-click="skillsselected(skill)" value="" ng-checked="">
-		{{skill}} 
+		<input type="checkbox" ng-model="authorskill" ng-click="skillsselected(skill)" value="" ng-checked="">
+		{{skill}} {{authorskill}}
 		</label>
 	</div>
   </div>

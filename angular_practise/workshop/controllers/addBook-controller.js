@@ -9,13 +9,21 @@ module.controller("addBook", function($scope, $http,$rootScope,$location) {
 		 $scope.array=[];
 		
 				$scope.chkSelected = function(cb){
+					console.log("outside for");
 				
 				 $scope.array.push(cb);
-				 
-				 
-				 
-				
+				 console.log($scope.array);
+				 for(var i=0; i<$scope.array.length-1;i++){
+					 for(var j=0;j<$scope.array.length-1;j++){
+					if($scope.array[i]===$scope.array[j]){
+						$scope.array.splice(j,1);
+					}
+					 }
 				}
+				console.log($scope.array);
+				}
+				
+				
 				
 		$scope.addBook=function(book){
 				
