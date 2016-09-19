@@ -38,8 +38,8 @@
   <label for="inputPassword3" class="col-sm-2 control-label">Skills :</label>
     <div class="checkbox-inline">
 		<label ng-repeat="skill in skills" class="col-sm-6">
-		<input type="checkbox" ng-model="authorskill" ng-click="skillsselected(skill)" >
-		{{skill}} {{authorskill}}
+		<input type="checkbox" ng-model="authorskill" ng-click="skillsselected(skill,authorskill)" >
+		{{skill}}
 		</label>
 	</div>
   </div>
@@ -67,4 +67,35 @@ adauthor.name.$dirty && adauthor.name.$invalid || adauthor.emailid.$dirty && ada
     </div>
   </div>
 </form>
+<!--
+	<br/> <br/> <br/>
+	Existing Author Details:
+	<br/> <br/>
+<div class="table_info table-responsive" >
+			<table class="table table-hover table-bordered">
+			<tr>
+				<th>author ID</th>
+				<th>NAME </th>
+				<th>Email</th>
+				<th>Department</th>
+				<th>Skills</th>
+				<th>website</th>
+				
+				
+			</tr>
+<tr ng-repeat="author in myAuthor" >
+								 
+										<td>{{author.empid}}</td>
+										<td>{{author.name}}</td>
+										<td>{{author.email}}</td>
+										<td>{{author.department}}</td>
+										<td>{{author.skills}}</td>
+										<td>{{author.website}}</td>
+										
+										
+									
+								
+			</tr>
+			</table>
+			</div>-->
 </div>

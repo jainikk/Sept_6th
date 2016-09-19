@@ -43,8 +43,8 @@
   <label for="inputPassword3" class="col-sm-2 control-label">Available On :</label>
    
     <div class="checkbox-inline">
-		<label ng-repeat="cb in availableOn" class="col-sm-6">
-		<input type="checkbox"  ng-model="book.availableOn" ng-checked="true" ng-click="chkSelected(cb)" value="" ng-checked="">
+		<label ng-repeat="cb in book.availableOn" class="col-sm-6">
+		<input type="checkbox"  ng-model="available" ng-checked="true" ng-click="chkSelected(cb,available)" >
 		{{cb}} 
 		</label>
 	</div>
@@ -65,29 +65,10 @@
   </div>
 
 
-
-<!--<div id="actualbookdetails">
-<label class="col-sm-12">
-ISBN: {{book_details.isbn}}
-</label>
-
-<label class="col-sm-12">
-Title: {{book_details.title}}
-</label>
-
-<label class="col-sm-12">
-Author: {{book_details.author}}
-</label>
-
-<label class="col-sm-12">
-Price: {{book_details.price}}
-</label>
-
-<label class="col-sm-12">
-Available On: {{book_details.availableOn}}
-</label>
-
-</div> -->
+<!--
+<br/> <br/> <br/>
+	Existing Book Details:
+	<br/> <br/>
 <div id="table_details" class="table_info table-responsive" >
 			<table class="table table-hover table-bordered">
 			<tr>
@@ -98,13 +79,13 @@ Available On: {{book_details.availableOn}}
 				<th>Available On</th>
 			</tr>
 			
-			<tr ng-repeat="employee in myData" ng-click="showbookpage(employee)">
+			<tr ng-repeat="employee in myData">
 								 
-										<td><a href="#/bookdetails">{{employee.isbn}}</a></td>
-										<td><a href="#/bookdetails">{{employee.title}}</a></td>
-										<td><a href="#/authordetails">{{employee.author}}</a></td>
-										<td><a href="#/bookdetails">{{employee.price}}</a></td>
-										<td><a href="#/bookdetails">{{employee.availableOn}}</a></td>
+										<td>{{employee.isbn}}</td>
+										<td>{{employee.title}}</td>
+										<td>{{employee.author}}</td>
+										<td>{{employee.price}}</td>
+										<td>{{employee.availableOn}}</td>
 									
 								
 			</tr>
@@ -114,5 +95,5 @@ Available On: {{book_details.availableOn}}
 	</div>
 	
 	</div>
-
+-->
   

@@ -9,21 +9,20 @@ module.controller("addAuthor", function($scope, $http,$rootScope,$location) {
 		  $scope.array=[];
 		
 		   
-		 $scope.skillsselected = function(skill){
-			console.log($scope.authorskill);
-			 
-				$scope.array.push(skill);
-				 console.log($scope.array);
-				 for(var i=0; i<$scope.array.length-1;i++){
-					 for(var j=i+1;j<$scope.array.length-1;j++){
-					if($scope.array[i]===$scope.array[j]){
-						$scope.array.splice(j,1);
-					}
-					 }
+		 $scope.skillsselected = function(skill,authorskill){
+			if(authorskill){
+				 $scope.array.push(skill);
 				}
-				
-			 
-				
+				else{
+					 	 
+							 
+					for(var i in $scope.array){
+								 if($scope.array[i]===skill){
+									$scope.array.splice(i,1);
+															}
+											  }
+						 
+					 }
 				console.log($scope.array);
 				
 				}

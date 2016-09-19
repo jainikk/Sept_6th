@@ -8,18 +8,23 @@ module.controller("addBook", function($scope, $http,$rootScope,$location) {
 		 
 		 $scope.array=[];
 		
-				$scope.chkSelected = function(cb){
-					console.log("outside for");
-				
+		
+				$scope.chkSelected = function(cb,available){
+				if(available){
 				 $scope.array.push(cb);
-				 console.log($scope.array);
-				 for(var i=0; i<$scope.array.length-1;i++){
-					 for(var j=0;j<$scope.array.length-1;j++){
-					if($scope.array[i]===$scope.array[j]){
-						$scope.array.splice(j,1);
-					}
-					 }
 				}
+				else{
+					 	 
+							 
+							 for(var i in $scope.array){
+								 if($scope.array[i]===cb){
+							 $scope.array.splice(i,1);
+							 }
+							 }
+						 
+					 }
+				
+				
 				console.log($scope.array);
 				}
 				

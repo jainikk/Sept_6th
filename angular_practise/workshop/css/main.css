@@ -1,0 +1,28 @@
+.header1{
+	 background-color:black;
+	 width:100%;
+	
+	}
+	.heading{
+	 color:white;
+	 
+	}
+	.error{
+	color:red;
+	}
+	td a,td a:hover{
+	text-decoration:none;
+	color:inherit;
+	}
+	.addbook{
+	 margin:0.5em;
+	}
+	.addauthor{
+		margin:0.5em;
+	}
+	#table_details,#bookeditingform,#authorform{
+	 display:none;
+	}
+	#bookdetails,#authordetails{
+	margin-left:15%;
+	}
