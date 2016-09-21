@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1.0">
+
+    <title>Book Application</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
+    <script src="controllers/main.js"></script>
+    <script src="controllers/addBook-controller.js"></script>
+    <script src="controllers/addAuthor-controller.js"></script>
+    <script src="controllers/edit_delete-author-controller.js"></script>
+    <script src="controllers/edit_delete-book-controller.js"></script>
+
+</head>
+
+<body ng-app="bookDemoApp">
+
+
+    <div class="container-fluid" ng-controller='bookctrl'>
+        <header class="header1 col-sm-8">
+            <h1 class="heading col-sm-offset-4">Online Book Store</h1>
+        </header>
+        <br/> <br/> <br/> <br/>
+        <nav class="navbar navbar-default">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse col-sm-8" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="addbook"><a class="btn btn-default btn-responsive" href="#/addbook" role="button">Add Book</a></li>
+                    <li class="addauthor"><a class="btn btn-default btn-responsive" href="#/addauthor" role="button">Add Author</a></li>
+					<li class="home"><a class="btn btn-default btn-responsive" href="#/" role="button">Home</a></li>
+
+                </ul>
+
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+        <div class="routediv" ng-view>
+
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<div class="table_info table-responsive">
+    <table class="table table-bordered">
+        <tr>
+            <th>ISBN </th>
+            <th>Title </th>
+            <th>Author</th>
+
+        </tr>
+
+        <tr ng-repeat="book in myData">
+
+            <td><a ng-href="#/bookdetails?{{book.isbn}}">{{book.isbn}}</a></td>
+            <td><a>{{book.title}}</a></td>
+            <td><a ng-href="#/authordetails?{{book.author}}">{{book.author}}</a></td>
+
+
+
+        </tr>
+
+    </table>
+
+</div>

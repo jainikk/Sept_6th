@@ -1,0 +1,102 @@
+
+<div class="addauthordetail" ng-controller="addAuthor">
+<h2>Add New Author Details </h2>
+<br/> <br/>
+    <form name="adauthor" class="form-horizontal" novalidate>
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Employee ID :</label>
+            <div class="col-sm-5">
+                <input type="text" id="empid" name="empid" ng-model="author.empid" class="form-control" id="isbn" placeholder="Employee ID" required>
+                <span class="error" ng-show="adauthor.empid.$dirty && adauthor.empid.$invalid">
+				<span  ng-show="adauthor.empid.$error.required">Employee ID cannot be empty</span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">Name :</label>
+            <div class="col-sm-5">
+                <input type="text" id="name" name="name" ng-model="author.name" class="form-control" id="title" placeholder="Your Name" required>
+                <span class="error" ng-show="adauthor.name.$dirty && adauthor.name.$invalid">
+				<span  ng-show="adauthor.name.$error.required">Author name cannot be empty</span>
+                </span>
+
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">Email :</label>
+            <div class="col-sm-5">
+                <input type="email" id="emailid" name="emailid" ng-model="author.email" class="form-control" id="author" placeholder="Email ID" required>
+                <span class="error" ng-show="adauthor.emailid.$dirty && adauthor.emailid.$invalid">
+				<span ng-show="adauthor.emailid.$error.required">Email ID cannot be empty</span>
+                <span ng-show="adauthor.emailid.$error.email">Invalid EmailID</span>
+
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">Skills :</label>
+            <div class="checkbox-inline col-sm-5">
+                <label ng-repeat="skill in skills" class="col-sm-6">
+					<input type="checkbox" ng-model="authorskill" ng-click="skillsselected(skill,authorskill)" >
+				{{skill}}
+				</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">Department :</label>
+            <div class="col-sm-5">
+                <input type="text" id="dept" name="dept" ng-model="author.department" class="form-control" id="price" placeholder="Department name" required>
+                <span class="error" ng-show="adauthor.dept.$dirty && adauthor.dept.$invalid">
+				<span  ng-show="adauthor.dept.$error.required">Department name cannot be empty</span>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">Website :</label>
+            <div class="col-sm-5">
+                <input type="text" ng-model="author.website" class="form-control" id="availableOn" placeholder="Website URL">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" ng-disabled="adauthor.empid.$dirty && adauthor.empid.$invalid ||
+				adauthor.name.$dirty && adauthor.name.$invalid || adauthor.emailid.$dirty && adauthor.emailid.$invalid || 
+				adauthor.dept.$dirty && adauthor.dept.$invalid " ng-click="addAuthor(author)" class="btn btn-success">Save</button>
+            </div>
+        </div>
+    </form>
+    <!--
+	<br/> <br/> <br/>
+	Existing Author Details:
+	<br/> <br/>
+<div class="table_info table-responsive" >
+			<table class="table table-hover table-bordered">
+			<tr>
+				<th>author ID</th>
+				<th>NAME </th>
+				<th>Email</th>
+				<th>Department</th>
+				<th>Skills</th>
+				<th>website</th>
+				
+				
+			</tr>
+<tr ng-repeat="author in myAuthor" >
+								 
+										<td>{{author.empid}}</td>
+										<td>{{author.name}}</td>
+										<td>{{author.email}}</td>
+										<td>{{author.department}}</td>
+										<td>{{author.skills}}</td>
+										<td>{{author.website}}</td>
+										
+										
+									
+								
+			</tr>
+			</table>
+			</div>-->
+</div>

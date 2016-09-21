@@ -1,0 +1,97 @@
+<br/> <br/>
+
+<div class="authordetail" ng-controller="edit_delete-author">
+    <div id="authordetails">
+        <h2>Author Details </h2>
+        <label>Employee ID: {{searchauthor.empid}} </label> <br/>
+        <label>Name: {{searchauthor.name}} </label> <br/>
+        <label>Email: {{searchauthor.email}} </label> <br/>
+        <label>Skills: {{searchauthor.skills}} </label> <br/>
+        <label>Department: {{searchauthor.department}} </label> <br/>
+        <label>Website: {{searchauthor.website}} </label> <br/>
+    </div>
+    
+    <form id="authorform" class="form-horizontal">
+        <h2>Edit Author Details: </h2>
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-4 control-label">Employee ID :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-disabled="true" ng-model="searchauthor.empid" value="{{searchauthor.empid}}" class="form-control" id="isbn" placeholder="Employee ID">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-4 control-label">Name :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="searchauthor.name" value="{{searchauthor.name}}" class="form-control" id="title" placeholder="Your Name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-4 control-label">Email :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="searchauthor.email" value="{{searchauthor.email}}" class="form-control" id="author" placeholder="Email ID">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-4 control-label">Skills :</label>
+            <div class="checkbox-inline">
+                <label ng-repeat="skill in searchauthor.skills" class="col-sm-6">
+						<input type="checkbox" ng-checked="true" ng-model="authorskill" ng-click="skillsselected(skill,authorskill)" >
+						{{skill}}
+				</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-4 control-label">Department :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="searchauthor.department" value="{{searchauthor.department}}" class="form-control" id="price" placeholder="Department name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-4 control-label">Website :</label>
+            <div class="col-sm-7">
+                <input type="text" ng-model="searchauthor.website" value="{{searchauthor.website}}" class="form-control" id="availableOn" placeholder="Website URL">
+            </div>
+        </div>
+
+
+    </form>
+
+    <div class="col-sm-offset-4 col-sm-1">
+        <button type="submit" onclick="showauthorform()" ng-dblclick="editAuthor(searchauthor)" class="btn btn-success">Edit</button>
+    </div>
+     
+    <div class="col-sm-offset-1 col-sm-1">
+        <button type="submit" ng-click="deleteAuthor(searchauthor)" class="btn btn-danger">Delete</button>
+    </div>
+    <!--
+	<br/> <br/> <br/>
+	Existing Author Details:
+	<br/> <br/>
+<div class="table_info table-responsive" >
+			<table class="table table-hover table-bordered">
+			<tr>
+				<th>author ID</th>
+				<th>NAME </th>
+				<th>Email</th>
+				<th>Department</th>
+				<th>Skills</th>
+				<th>website</th>
+				
+				
+			</tr>
+<tr ng-repeat="author in myAuthor" >
+								 
+										<td>{{author.empid}}</td>
+										<td>{{author.name}}</td>
+										<td>{{author.email}}</td>
+										<td>{{author.department}}</td>
+										<td>{{author.skills}}</td>
+										<td>{{author.website}}</td>
+										
+										
+									
+								
+			</tr>
+			</table>
+			</div> -->
+</div>

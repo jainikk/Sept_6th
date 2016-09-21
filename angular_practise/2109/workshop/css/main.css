@@ -1,0 +1,71 @@
+
+
+body{
+background-image:url("Book-Store.png");	
+	
+}
+table th{
+	text-align:center;
+	font-size:2em;
+}
+table tr{
+	text-align:center;
+	font-size:1.3em;
+}
+table{
+background-color:black;	
+opacity:0.8;
+color:white;
+}
+.authordetail,.addbookdetail,.addauthordetail{
+opacity:0.8;
+color:black;
+border:2px solid white;
+background-color:white;	
+width:70%;
+height:38em;
+}
+.addbookdetail{
+	height:35em;
+}
+.addauthordetail{
+	height:43em;
+}
+.routediv{
+	padding:55px;
+}
+.header1{
+	 background-color:black;
+	 width:100%;
+	
+	}
+	.heading{
+	 color:white;
+	 
+	}
+	nav{
+		position:relative;
+	}
+	.error{
+	color:red;
+	}
+	td a,td a:hover{
+	text-decoration:none;
+	color:inherit;
+	}
+	.addbook{
+	 margin:0.5em;
+	}
+	.addauthor{
+		margin:0.5em;
+		
+	}
+	.home{
+		margin:0.5em;
+	}
+	#table_details,#bookeditingform,#authorform{
+	 display:none;
+	}
+	#bookdetails,#authordetails{
+	margin-left:15%;
+	}
