@@ -1,0 +1,51 @@
+1)	Controller as syntax verses scope
+2)	Manual bootstarp
+3)	Custom directive
+4)	Scopes in directives  : Isolated scope, Inherited ,new 
+5)	 Scope = true in a directive.
+6)	Transclude option in a directive
+7)	One way binding {{::}} 
+8)	Ng-switch
+9)	Link function and its attributes 
+10)	Pre link 
+11)	Compile: {   prelink : compile dom and assign meaning of each directive
+12)	  Post : associate scope with compiled DOM }
+
+
+
+-------------------------------------------------------------------------------
+Angular JS
+-------------------------------------------------------------------------------
+
+How is Angular JS useful?
+
+What do the following directives do? Give an example.
+ng-app
+ng-bind
+ng-repeat
+ng-init
+ng-controller
+
+How would $scope behave with nested controllers? 
+What is $rootScope? When would you use it?
+
+What are the various filters?
+How do I add a custom filter?
+
+How would you go about form validation?
+
+How can I load a template? Scenario - I have some HTML that gives me the necessary labels and inputs for the user to input their address. I'd like to make use of this as part of two other forms which are part of two separate views.
+
+In what scenario would you make use of a value, constant, factory, service or provider?
+
+How would one implement routing?
+
+How do I make an AJAX request?
+
+How would you handle an asynchronous request? 
+
+How would I add a custom directive?
+What are the different criteria I can use to match?
+How is link useful?
+What does transclude do?
+If there are multiple custom directives that match on an element, how would you control which one would apply first?
